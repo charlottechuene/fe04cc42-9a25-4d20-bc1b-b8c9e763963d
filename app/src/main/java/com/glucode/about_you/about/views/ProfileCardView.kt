@@ -1,5 +1,6 @@
 package com.glucode.about_you.about.views
 import android.content.Context
+import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +8,11 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import com.glucode.about_you.R
+import android.widget.ImageView;
+import com.bumptech.glide.Glide
 
 import com.glucode.about_you.databinding.ProfileViewBinding
+import com.glucode.about_you.mockdata.MockData
 
 class ProfileCardView @JvmOverloads constructor(
     context: Context,
@@ -45,4 +49,20 @@ class ProfileCardView @JvmOverloads constructor(
             field = value
             binding.bugs.text = value
         }
+    fun setImage(uri: Uri){
+        Glide.with(this)
+            .load(uri)
+            .into(binding.profilePic)
+    }
+    val imageView:ImageView
+        get() = binding.profilePic
 }
+
+
+
+
+
+
+
+
+
